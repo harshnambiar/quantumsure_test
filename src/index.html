@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Password Manager</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    section { margin-bottom: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+    button { cursor: pointer; }
+    #output { margin-top: 10px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Quantum Password Manager</h1>
+
+  <section>
+    <h2>Create Account</h2>
+    <input type="password" id="create-master-password" placeholder="Master Password">
+    <input type="text" id="secret-phrase" placeholder="Secret Phrase">
+    <button onclick="createAccount()">Create Account</button>
+  </section>
+
+  <section>
+    <h2>Store Password</h2>
+    <input type="text" id="site" placeholder="Site (e.g., example.com)">
+    <input type="text" id="username" placeholder="Username">
+    <input type="text" id="password" placeholder="Password">
+    <button onclick="generatePassword()">Generate Password</button>
+    <button onclick="storePassword()">Store Password</button>
+  </section>
+
+  <section>
+    <h2>Vault</h2>
+    <button onclick="listPasswords()">List Passwords</button>
+    <ul id="password-list"></ul>
+  </section>
+
+  <section>
+    <h2>Retrieve Password</h2>
+    <input type="text" id="password-id" placeholder="Password ID">
+    <input type="password" id="retrieve-master-password" placeholder="Master Password">
+    <button onclick="getPassword()">Get Password</button>
+  </section>
+
+  <section>
+    <h2>Share Password</h2>
+    <input type="text" id="share-password-id" placeholder="Password ID">
+    <input type="text" id="recipient-public-key" placeholder="Recipient Public Key">
+    <input type="password" id="share-master-password" placeholder="Master Password">
+    <button onclick="generateShareToken()">Generate Share Token</button>
+  </section>
+
+  <section>
+    <h2>Access Shared Password</h2>
+    <input type="text" id="share-token" placeholder="Share Token">
+    <input type="password" id="access-master-password" placeholder="Master Password">
+    <button onclick="accessSharedPassword()">Access Shared Password</button>
+  </section>
+
+  <section>
+    <h2>Revoke Share Token</h2>
+    <input type="text" id="revoke-share-token" placeholder="Share Token">
+    <button onclick="revokeShareToken()">Revoke Share Token</button>
+  </section>
+
+  <div id="output"></div>
+
+
+  
+</body>
+</html>
