@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum Password Manager</title>
+  <title>QuantumSure</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
-    section { margin-bottom: 20px; }
-    input, button { margin: 5px; padding: 8px; }
-    button { cursor: pointer; }
-    #output { margin-top: 10px; padding: 10px; border: 1px solid #ccc; }
+    body { font-family: Arial; padding: 20px; max-width: 800px; margin: auto; }
+    section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+    input, button { margin: 5px; padding: 8px; width: 100%; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    #output { margin-top: 20px; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; }
   </style>
 </head>
 <body>
-  <h1>Quantum Password Manager</h1>
-
+  <h1>QuantumSure – Post-Quantum Password Vault</h1>
+  <!-- ADD THIS BELOW <h1> -->
+  <div id="user-switcher" style="margin: 15px 0; padding: 10px; border: 1px solid #eee; border-radius: 8px; display: none;">
+    <strong>Current User:</strong> <span id="current-user">None</span>
+    <button onclick="switchUser()" style="margin-left: 10px;">Switch User</button>
+    <button onclick="logoutUser()" style="margin-left: 5px; background: #dc3545;">Log Out</button>
+  </div>
   <section>
     <h2>Create Account</h2>
     <input type="password" id="create-master-password" placeholder="Master Password">
-    <input type="text" id="secret-phrase" placeholder="Secret Phrase">
+    <input type="text" id="secret-phrase" placeholder="Secret Recovery Phrase">
     <button onclick="createAccount()">Create Account</button>
   </section>
 
   <section>
     <h2>Store Password</h2>
-    <input type="text" id="site" placeholder="Site (e.g., example.com)">
+    <input type="text" id="site" placeholder="Site">
     <input type="text" id="username" placeholder="Username">
     <input type="text" id="password" placeholder="Password">
-    <button onclick="generatePassword()">Generate Password</button>
-    <button onclick="storePassword()">Store Password</button>
+    <button onclick="generatePassword()">Generate</button>
+    <button onclick="storePassword()">Store</button>
   </section>
 
   <section>
@@ -38,36 +44,29 @@
   </section>
 
   <section>
-    <h2>Retrieve Password</h2>
+    <h2>Retrieve</h2>
     <input type="text" id="password-id" placeholder="Password ID">
     <input type="password" id="retrieve-master-password" placeholder="Master Password">
-    <button onclick="getPassword()">Get Password</button>
+    <button onclick="getPassword()">Get</button>
   </section>
 
   <section>
-    <h2>Share Password</h2>
+    <h2>Share with Team</h2>
     <input type="text" id="share-password-id" placeholder="Password ID">
-    <input type="text" id="recipient-public-key" placeholder="Recipient Public Key">
+    <input type="text" id="recipient-api-keys" placeholder="Recipient API Keys (comma-separated)">
     <input type="password" id="share-master-password" placeholder="Master Password">
-    <button onclick="generateShareToken()">Generate Share Token</button>
+    <button onclick="sharePassword()">Share</button>
   </section>
 
   <section>
-    <h2>Access Shared Password</h2>
-    <input type="text" id="share-token" placeholder="Share Token">
+    <h2>Use Shared Password</h2>
+    <input type="text" id="share-id" placeholder="Share ID">
     <input type="password" id="access-master-password" placeholder="Master Password">
-    <button onclick="accessSharedPassword()">Access Shared Password</button>
-  </section>
-
-  <section>
-    <h2>Revoke Share Token</h2>
-    <input type="text" id="revoke-share-token" placeholder="Share Token">
-    <button onclick="revokeShareToken()">Revoke Share Token</button>
+    <button onclick="useShared()">Use</button>
   </section>
 
   <div id="output"></div>
 
 
-  
 </body>
 </html>
