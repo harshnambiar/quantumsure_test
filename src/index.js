@@ -376,10 +376,11 @@ window.sharePassword = async () => {
   const apiKey = localStorage.getItem('apiKey');
   const id = document.getElementById('share-password-id').value;
   const mp = document.getElementById('share-master-password').value;
+  const st = document.getElementById('share-type').value;
   const epk = localStorage.getItem('encryptedPrivateKey');
   const recipients = document.getElementById('recipient-api-keys').value.split(',').map(s => s.trim()).filter(Boolean);
 
-  if (!apiKey || !id || !mp || !epk || recipients.length === 0) {
+  if (!apiKey || !id || !mp || !epk || !st || recipients.length === 0) {
     return alert('Fill all fields');
   }
 
@@ -413,7 +414,8 @@ window.sharePassword = async () => {
           qpassword_id: id,
           user_api_keys: recipients,
           encrypted_access_tokens: encryptedTokens,
-          expires_in_hours: 24
+          expires_in_hours: 24,
+          share_type: st
         }
       })
     });
