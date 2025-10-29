@@ -58,6 +58,19 @@
     <input type="password" id="share-master-password" placeholder="Master Password">
     <button onclick="sharePassword()">Share</button>
   </section>
+  
+  
+  <section>
+    <h2>Revoke Shared Password</h2>
+    <input type="text" id="share-id2" placeholder="Share ID">
+    <button onclick="revokeShared()">Revoke</button>
+  </section>
+  
+  <section>
+    <h2>Delete Shared Password</h2>
+    <input type="text" id="share-id3" placeholder="Share ID">
+    <button onclick="deleteShared()">Delete</button>
+  </section>
 
   <section>
     <h2>Use Shared Password</h2>
@@ -66,6 +79,55 @@
     <button onclick="useShared()">Use</button>
   </section>
 
+  <!-- ==== CREATE GROUP ==== -->
+<section>
+  <h2>Create Share Group</h2>
+  <input id="group-name" placeholder="Group name (e.g. Dev Team)" />
+  <button onclick="createShareGroup()">Create</button>
+</section>
+
+<!-- ==== ADD MEMBER ==== -->
+<section>
+  <h2>Add Member to Group</h2>
+  <input id="add-group-id" placeholder="Group ID" />
+  <input id="add-member-key" placeholder="Recipient API key" />
+  <button onclick="addGroupMember()">Add</button>
+  </section>
+
+<!-- ==== REMOVE MEMBER ==== -->
+<section>
+  <h2>Remove Member from Group</h2>
+  <input id="remove-group-id" placeholder="Group ID" />
+  <input id="remove-member-key" placeholder="Recipient API key" />
+  <button onclick="removeGroupMember()">Remove</button>
+</section>
+
+<!-- ==== REVOKE GROUP ==== -->
+<section>
+  <h2>Revoke Share Group</h2>
+  <input id="revoke-group-id" placeholder="Group ID" />
+  <button onclick="revokeShareGroup()">Delete</button>
+
+</section>
+
+<!-- ==== DELETE GROUP ==== -->
+<section>
+  <h2>Delete Share Group</h2>
+  <input id="delete-group-id" placeholder="Group ID" />
+  <button onclick="deleteShareGroup()">Delete</button>
+</section>
+
+
+<!-- ==== SHARE WITH GROUP ==== -->
+<section>
+  <h2>Share with Group</h2>
+  <input id="share-group-id" placeholder="Group ID" />
+  <input id="share-pwd-id" placeholder="Password ID" />
+  <input id="share-pwd-type" placeholder="password or oauth_token" />
+  <input id="share-mp" placeholder="Master Password" type="password" />
+  <button onclick="shareWithGroup()">Share with Group</button>
+</section>
+  
   <div id="output"></div>
 
 
